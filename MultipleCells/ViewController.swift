@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class ViewController: UIViewController {
     
@@ -74,6 +75,14 @@ extension ViewController : ThirdCellDelegate
 {
     func mapButtonClicked(cell: ThirdCell){
         print("View Controller received delegate call from ThirdCellDelegate")
+        
+        let showThisAlert = SCLAlertView()
+        _ = showThisAlert.addButton("Show on Map") {
+            print("perform segue for mapView")
+        }
+        
+        _ = showThisAlert.showSuccess(controllerModel.firstVariable, subTitle: controllerModel.thirdVariable + "\n" + controllerModel.fourthVariable)
+        
     }
     
     
